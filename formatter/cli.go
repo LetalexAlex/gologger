@@ -4,7 +4,7 @@ import (
 	"bytes"
 
 	"github.com/logrusorgru/aurora"
-	"github.com/projectdiscovery/gologger/levels"
+	"github.com/letalexalex/gologger/levels"
 )
 
 // CLI is a formatter for outputting CLI logs
