@@ -43,7 +43,9 @@ func (c *CLI) Format(event *LogEvent) ([]byte, error) {
 		buffer.WriteRune(' ')
 		delete(event.Metadata, "timestamp")
 	}
-	buffer.WriteString(event.Message)
+
+	// Colorize the message based on the log level
+	buffer.WriteString(c.colorizeMessage(event))
 
 	for k, v := range event.Metadata {
 		buffer.WriteRune(' ')
@@ -82,5 +84,28 @@ func (c *CLI) colorizeLabel(event *LogEvent) {
 		event.Metadata["label"] = c.aurora.Magenta(label).String()
 	case levels.LevelWarning:
 		event.Metadata["label"] = c.aurora.Yellow(label).String()
+	}
+}
+
+// colorizeMessage colorizes the log message based on the event's level
+func (c *CLI) colorizeMessage(event *LogEvent) string {
+	if c.NoUseColors {
+		return event.Message
+	}
+	switch event.Level {
+	case levels.LevelFatal:
+		return c.aurora.Bold(aurora.Red(event.Message)).String()
+	case levels.LevelError:
+		return c.aurora.Red(event.Message).String()
+	case levels.LevelWarning:
+		return c.aurora.Yellow(event.Message).String()
+	case levels.LevelInfo:
+		return c.aurora.White(event.Message).String()
+	case levels.LevelDebug:
+		return c.aurora.Magenta(event.Message).String()
+	case levels.LevelVerbose:
+		return c.aurora.White(event.Message).String()
+	default:
+		return event.Message // Default case for no color or unrecognized level
 	}
 }
