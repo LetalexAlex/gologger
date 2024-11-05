@@ -1,4 +1,4 @@
-module github.com/projectdiscovery/gologger
+module github.com/letalexalex/gologger
 
 go 1.21
 
