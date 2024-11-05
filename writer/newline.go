@@ -1,7 +1,7 @@
 package writer
 
 import (
-	osutil "github.com/projectdiscovery/utils/os"
+	osutil "github.com/letalexalex/utils/os"
 )
 
 var NewLine string
