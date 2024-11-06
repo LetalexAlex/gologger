@@ -11,8 +11,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/mholt/archiver/v3"
 	"github.com/letalexalex/gologger/levels"
+	"github.com/mholt/archiver/v3"
 	"gopkg.in/djherbis/times.v1"
 )
 

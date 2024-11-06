@@ -3,8 +3,8 @@ package formatter
 import (
 	"bytes"
 
-	"github.com/logrusorgru/aurora"
 	"github.com/letalexalex/gologger/levels"
+	"github.com/logrusorgru/aurora"
 )
 
 // CLI is a formatter for outputting CLI logs

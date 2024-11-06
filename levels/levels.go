@@ -8,13 +8,13 @@ const (
 	LevelFatal Level = iota
 	LevelSilent
 	LevelError
-	LevelInfo
 	LevelWarning
+	LevelInfo
 	LevelDebug
 	LevelVerbose
 )
 
 // String returns the string representation of a log level
 func (l Level) String() string {
-	return [...]string{"fatal", "silent", "error", "info", "warning", "debug", "verbose"}[l]
+	return [...]string{"fatal", "silent", "error", "warning", "info", "debug", "verbose"}[l]
 }
