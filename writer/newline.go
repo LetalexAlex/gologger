@@ -1,13 +1,13 @@
 package writer
 
 import (
-	osutil "github.com/projectdiscovery/utils/os"
+	"runtime"
 )
 
 var NewLine string
 
 func init() {
-	if osutil.IsWindows() {
+	if runtime.GOOS == "windows" {
 		NewLine = "\r\n"
 	} else {
 		NewLine = "\n"
